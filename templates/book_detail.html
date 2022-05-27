@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" type = "text/css" href="{% static '/css/bootstrap.css/' %}">
+</head>
+<body>
+<style>
+    div{
+        color:#7abaff;
+    }
+    .books__button {
+        margin-top: 20px;
+    }
+    .detail__image{
+        height: 440px;
+        width: 270px;
+        object-fit:fill;
+
+    }
+
+    .book_card_body {
+    background-color: #d64161;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    }
+
+    body{
+    background-color: #6b5b95;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+     }
+    .card{
+        background-color: #7abaff;
+        height: 400px;
+        width: 800px;
+        font-palette: dark;
+    }
+    .card-title{
+        color: #1b1e21;
+    }
+    .card-text{
+        color: #1d2124;
+    }
+    .card-d{
+        margin-right: fill;
+        color: #171a1d;
+    }
+
+</style>
+<div>
+    <a class="btn btn-primary books__button" href="/books/" role="button">Back</a>
+    <a class="btn btn-primary books__button" href="/add-books/" role="button">Create New</a>
+    <a class="btn btn-primary books__button" href="/books/{{ object.id }}/update/" role="button">Update</a>
+    <a class="btn btn-primary books__button" href="/books/{{ object.id }}/delete/" role="button">Delete</a>
+</div>
+<div class="container">
+    <h5 class="card-title">{{ object.title }}</h5>
+    <div class="card">
+          <img src="{{ object.image.url }}" class="card-img-top detail__image" alt="...">
+            <p class="card-d"> {{ object.description }}</p>
+          <div class="card-body book_card_body">
+            <p class="card-text">{{ object.author }}</p>
+            <p class="card-text">{{ object.genre }}</p>
+            <p class="card-text">{{ object.year_of_issue }}</p>
+            <p class="card-text">{{ object.age_control }}</p>
+            <p class="card-text">{{ object.created_date }}</p>
+            <p class="card-text">{{ object.updated_date }}</p>
+              <div class="card-body">
+                  <h2>Comments: </h2>
+                  <ul>
+                      {% for comment in object.books_comment.all %}
+                      <li>
+                            <p>Имя: {{ comment.user.username }}</p>
+                                <p> {{ comment.text }}</p>
+                    </li>
+                      {% endfor %}
+                  </ul>
+
+              </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+{#<img src="{{ book.image.url }}"class="detail__image" alt="">#}
+{#<h2>{{ book.title }}</h2>#}
+{#<p>{{ book.description }}</p>#}
+{#<p>{{ book.author }}</p>#}
+{#<p>{{ book.genre }}</p>#}
+{#<p>{{ book.year_of_issue }}</p>#}
+{#<p>{{ book.age_control }}</p>#}
+{#<p>{{ book.created_date }}</p>#}
+{#<p>{{ book.updated_date }}</p>#}
+
+{#<a href="/books/"class="btn-primary">Back</a>#}
+
+</body>
+</html>

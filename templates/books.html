@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css/' %}">
+</head>
+<body>
+<style>
+    body {
+        background-color: #6b5b95;
+
+    }
+
+    .books__img {
+        height: 250px;
+        object-fit: contain;
+    }
+    .books__container{
+        height: 30px;
+    }
+</style>
+<div class="container">
+    <a class="btn btn-primary books__button" href="/books/" role="button">All</a>
+    <a class="btn btn-primary books__button" href="/books/latest" role="button">Latest</a>
+    <a class="btn btn-primary books__button" href="/books/latest" role="button">Drama</a>
+    <a class="btn btn-primary books__button" href="/books/fantasy" role="button">Fantasy</a>
+    <a class="btn btn-primary books__button" href="/books/thriller" role="button">Thriller</a>
+    <a class="btn btn-primary books__button" href="/books/romance" role="button">Romance</a>
+    <a class="btn btn-primary books__button" href="/books/westerns" role="button">Westerns</a>
+    <a class="btn btn-primary books__button" href="/books/literary_fiction" role="button">Literary Fiction</a>
+    <a class="btn btn-primary books__button" href="/books/Humor" role="button">Humor</a>
+    <a class="btn btn-primary books__button" href="/books/motivational" role="button">Motivational</a>
+    <a class="btn btn-primary books__button" href="/books/historical_fiction" role="button">Historical Fiction</a>
+    <a class="btn btn-primary books__button" href="/books/masnavyi" role="button">Masnavyi</a>
+</div>
+<div class="container books__container">
+    <div class="row gy-5">
+        {% for book in object_list %}
+        <div class="col-3">
+            <div class="card">
+                <img src="{{ book.image.url }}" class="card-img-top books__img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">{{ book.genre }}</p>
+                    <a href="/books/{{ book.id }}" class="btn btn-primary">{{ book.title }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div>
+    <ul>
+        {# {% for book in books %}#}
+        <li>#}
+            {# <img src="{{ book.image.url }}" alt="">#}
+            {# <h2><a href="/books/{{ book.id }}/">{{ book.title }}</a></h2>#
+        </li>
+        {# {% endfor %}#}
+    </ul>
+</body>
+</html>
