@@ -55,12 +55,12 @@
 
 <div>
     <ul>
-        {# {% for book in books %}#}
-        <li>#}
-            {# <img src="{{ book.image.url }}" alt="">#}
-            {# <h2><a href="/books/{{ book.id }}/">{{ book.title }}</a></h2>#
+         {% for book in books %}
+        <li>
+             <img src="{{ book.image.url }}" alt="">
+             <h2><a href="/books/{{ book.id }}/">{{ book.title }}</a></h2>
         </li>
-        {# {% endfor %}#}
+         {% endfor %}
     </ul>
 </body>
 </html>
