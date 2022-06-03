@@ -43,7 +43,7 @@ def get_data_shisha(html):
     for i in items:
         vapes.append({
             'link': domen + i.find('a').get('href'),
-            'title': i.find('div', class_='item-title').find('span').get_text(),
+            'title': i.find('div', class_='item-title').find('span').get_text(strip=True),
             'img': domen2 + i.find('a').find('img').get('src'),
 
         }
@@ -90,3 +90,15 @@ def parser_func():
         return doramas
     else:
         raise Exception("Error in parser function")
+
+#
+# c = 0
+# while c != 4:
+#     html = get_html(HOST)
+#     get_data_dorama(html.text)
+#     # txt = open('list.txt', 'w')
+#     # parse = get_data_dorama(html.text)
+#     # conv = '\n'.join(parse)
+#     # parsed = txt.write(conv)
+#     c += 1
+#     continue

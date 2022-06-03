@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css/' %}">
+</head>
+<body>
+<style>
+    body{
+        background-color: #17a2b8;
+    }
+    .login{
+        width: 350px ;
+        height: 450px;
+    }
+</style>
+<form method="POST">
+    <div class="container login">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Log In</button>
+    </div>
+</form>
+</body>
+</html>

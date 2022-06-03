@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css/' %}">
+</head>
+<body>
+<style>
+    body{
+        background-color: #17a2b8;
+    }
+    .register__container{
+        background-color: #6b5b95;
+    }
+</style>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="container register__container">
+       <button class="btn btn-primary" type="submit">Register</button>
+    </div>
+
+</form>
+</body>
+</html>
